@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: banking-postgres
+    environment:
+      POSTGRES_DB: banking_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  banking-app:
+    image: banking-transaction-system:1.0
+    container_name: banking-app
+    ports:
+      - "8080:8080"
